@@ -1,0 +1,23 @@
+{
+  "name": "kalygo2-email-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "testing": "ts-node index.ts",
+    "watch": "nodemon --watch '**/*' --ignore 'node_modules/' -e 'ts' --exec 'ts-node --files -r tsconfig-paths/register' index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.398.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0"
+  }
+}
