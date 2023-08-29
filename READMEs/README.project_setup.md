@@ -21,3 +21,7 @@
 - git init
 - gaa
 - gc -m "Initial Commit"
+
+## Log up to 8-28-2023
+
+- setting up additional IAM Perms

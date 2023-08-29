@@ -1,18 +1,22 @@
 {
-  "name": "kalygo2-email-project",
+  "name": "kalygo2-ses-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "testing": "ts-node index.ts",
-    "watch": "nodemon --watch '**/*' --ignore 'node_modules/' -e 'ts' --exec 'ts-node --files -r tsconfig-paths/register' index.ts"
+    "watch": "nodemon --watch '**/*' --ignore 'node_modules/' -e 'ts' --exec 'ts-node --files -r tsconfig-paths/register' index.ts",
+    "create_template": "ts-node ./scripts/create_template.ts",
+    "delete_template": "ts-node ./scripts/delete_template.ts",
+    "send_templated_email": "ts-node ./scripts/send_templated_email.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.398.0",
+    "@aws-sdk/client-sesv2": "^3.398.0",
+    "dotenv": "^16.3.1",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
