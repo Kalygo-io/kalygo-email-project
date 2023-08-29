@@ -4,11 +4,16 @@ import "dotenv/config"; // see https://github.com/motdotla/dotenv#how-do-i-use-d
 import fs from "fs";
 import { SESv2Client, CreateEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
 
-const templateFilePath = `${process.cwd()}/./email-templates/transactional/BRANDED_HEADER_AND_MAIN_AND_FOOTER.html`;
+// const TEMPLATE_FILE_PATH = `${process.cwd()}/./email-templates/transactional/BRANDED_HEADER_AND_MAIN_AND_FOOTER.html`;
+// const TEMPLATE_NAME = `BRANDED_HEADER_AND_MAIN_AND_FOOTER`;
+// const TEMPLATE_FILE_PATH = `${process.cwd()}/./email-templates/transactional/BRANDED_JOB_COMPLETE.html`;
+// const TEMPLATE_NAME = `BRANDED_JOB_COMPLETE`;
+const TEMPLATE_FILE_PATH = `${process.cwd()}/./email-templates/marketing/FUN_STATIONARY_THEME.html`;
+const TEMPLATE_NAME = `FUN_STATIONARY_THEME`;
 
 async function main() {
   try {
-    const template = fs.readFileSync(templateFilePath, "utf8");
+    const template = fs.readFileSync(TEMPLATE_FILE_PATH, "utf8");
 
     const client = new SESv2Client({
       region: process.env.AWS_REGION!,
@@ -19,8 +24,7 @@ async function main() {
     });
 
     const params = {
-      TemplateName:
-        "BRANDED_HEADER_AND_MAIN_AND_FOOTER" /* name of template in AWS SES */,
+      TemplateName: TEMPLATE_NAME,
       TemplateContent: {
         Subject: "{{ SUBJECT }}",
         Text: "{{ MESSAGE_AS_TEXT }}",
